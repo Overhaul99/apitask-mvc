@@ -1,0 +1,21 @@
+{
+    "name": "luis/uptask_mvc",
+    "description": "Up_Task con PHP8, SASS, MVC",
+    "authors": [
+        {
+            "name": "Luis",
+            "email": "luiswester92@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers",
+            "Model\\" : "./models",
+            "Classes\\" : "./classes"
+        }
+    },
+    "require": {
+        "phpmailer/phpmailer": "^6.5"
+    }
+}
