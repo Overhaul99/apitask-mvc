@@ -1,0 +1,71 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.contenedor-tabla {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.table-rwd {
+    font-size: 1.6rem;
+    border: 1px solid rgba(181, 213, 144, 0.5);
+    color: v.$blanco;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #2c2c3b;
+}
+
+.table-rwd td {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    width: 8rem;
+
+}
+
+.table-rwd td, .table-rwd th {
+    padding: .8em;
+    border-bottom: 1px solid rgba(181, 213, 144, 0.5); 
+}
+
+.table-rwd th {
+    background: v.$verde;
+    color: v.$blanco;
+    font-weight: bold;
+    text-align: left; 
+}
+
+.table-rwd td {
+    text-align: left; 
+}
+
+.table-rwd td:first-of-type {
+    text-align: left; 
+}
+
+.table-container {
+    @include m.telefono-mini {
+        overflow-x: auto;
+    }
+    @include m.telefono {
+        overflow-x: auto;
+    }
+    @include m.tablet {
+        overflow-x: auto;
+    }
+    @include m.desktop{
+        max-width: 100%;
+        overflow-x: visible;
+    }
+}
+.table-rwd th:first-child {
+    width: 8em; 
+}
+.editar-usuario {
+    @include m.boton(v.$azul, v.$blanco);
+    border-radius: .5rem;
+}
+.eliminar-usuario {
+    @include m.boton(v.$rojo, v.$blanco);
+    border-radius: .5rem;
+}

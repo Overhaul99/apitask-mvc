@@ -32,6 +32,7 @@ class LoginController {
                         $_SESSION['nombre'] = $usuario->nombre;
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['area'] = $usuario->area;
+                        $_SESSION['rangoId'] = $usuario->rangoId;
                         $_SESSION['login'] = true;
 
                         //Redireccionar

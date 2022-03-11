@@ -1,6 +1,8 @@
 <?php 
 
 require_once __DIR__ . '/../includes/app.php';
+
+use Controllers\AdministradorController;
 use MVC\Router;
 use Controllers\LoginController;
 use Controllers\DashboardController;
@@ -44,6 +46,11 @@ $router->get('/api/tareas', [TareaController::class, 'index']);
 $router->post('/api/tarea', [TareaController::class, 'crear']);
 $router->post('/api/tarea/actualizar', [TareaController::class, 'actualizar']);
 $router->post('/api/tarea/eliminar', [TareaController::class, 'eliminar']);
+
+//Opciones para el administrador
+$router->get('/administracion', [AdministradorController::class, 'index']);
+$router->post('/administracion', [AdministradorController::class, 'actualizar']);
+$router->post('/administracion/eliminar', [AdministradorController::class, 'eliminar']);
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();

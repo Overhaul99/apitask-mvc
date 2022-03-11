@@ -357,6 +357,8 @@
 
                 tareas = tareas.filter( tareaMemoria => tareaMemoria.id !== tarea.id);
                 mostrarTareas();
+            } else {
+                Swal.fire('Error!', resultado.mensaje, 'error');
             }
 
         } catch (error) {

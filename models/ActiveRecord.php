@@ -74,11 +74,6 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return $resultado;
     }
-    public static function belongs($columna, $valor, $columna2, $valor2) {
-        $query = "SELECT * FROM " . static::$tabla . " WHERE ${columna} = '${valor}' AND ${columna2} = '${valor2}'";
-        $resultado = self::consultarSQL($query);
-        return $resultado;
-    }
 
     // SQL para Consultas Avanzadas.
     public static function SQL($consulta) {

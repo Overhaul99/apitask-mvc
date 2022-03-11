@@ -4,7 +4,7 @@ namespace Model;
 
 class Tarea extends ActiveRecord {
     protected static $tabla = 'tareas';
-    protected static $columnasDB = ['id', 'nombre', 'estado', 'proyectoId', 'encargado'];
+    protected static $columnasDB = ['id', 'nombre', 'estado', 'proyectoId'];
 
     public function __construct($args = [])
     {
@@ -12,6 +12,5 @@ class Tarea extends ActiveRecord {
         $this->nombre = $args['nombre'] ?? '';
         $this->estado = $args['estado'] ?? 0;
         $this->proyectoId = $args['proyectoId'] ?? '';
-        $this->encargado = $args['encargado'] ?? '';
     }
 }

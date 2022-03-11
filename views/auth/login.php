@@ -13,7 +13,7 @@
                 id="email"
                 placeholder="Tu Email"
                 name="email"
-                value="<?php echo $usuario->email; ?>"
+                value=""
                 >
             </div>
             <div class="campo">
@@ -34,3 +34,5 @@
         </div>
     </div> <!-- Contenedor-sm -->
 </div>
+
+<!-- //echo $usuario->email; -->
