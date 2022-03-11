@@ -7,14 +7,20 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP TABLE IF EXISTS `proyectos`;
 CREATE TABLE `proyectos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `proyecto` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `url` varchar(32) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `propietarioId` int(11) NOT NULL,
+  `areaId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `propietarioId` (`propietarioId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  KEY `propietarioId` (`propietarioId`),
+  KEY `area` (`areaId`),
+  KEY `rangoId` (`rangoId`),
+  CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`propietarioId`) REFERENCES `usuarios` (`id`),
+  CONSTRAINT `proyectos_ibfk_2` FOREIGN KEY (`areaId`) REFERENCES `area` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

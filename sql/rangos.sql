@@ -7,20 +7,19 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-DROP TABLE IF EXISTS `tareas`;
-CREATE TABLE `tareas` (
+DROP TABLE IF EXISTS `rangos`;
+CREATE TABLE `rangos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `estado` tinyint(1) DEFAULT NULL,
-  `proyectoId` int(11) DEFAULT NULL,
-  `encargadoId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `proyectoId` (`proyectoId`),
-  KEY `encargadoId` (`encargadoId`),
-  CONSTRAINT `tareas_ibfk_1` FOREIGN KEY (`proyectoId`) REFERENCES `proyectos` (`id`),
-  CONSTRAINT `tareas_ibfk_2` FOREIGN KEY (`encargadoId`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+  `rango` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
+INSERT INTO `rangos` (`id`, `rango`) VALUES
+(1, 'super-admin');
+INSERT INTO `rangos` (`id`, `rango`) VALUES
+(2, 'admin');
+INSERT INTO `rangos` (`id`, `rango`) VALUES
+(3, 'usuario');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

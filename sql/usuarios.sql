@@ -7,17 +7,25 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `token` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nombre` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `password` varchar(60) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `token` varchar(15) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `confirmado` tinyint(1) NOT NULL,
-  `permiso` tinyint(1) NOT NULL,
-  `area` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `area` int(11) DEFAULT NULL,
+  `rangoId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `area` (`area`),
+  KEY `rangoId` (`rangoId`),
+  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`area`) REFERENCES `area` (`id`),
+  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`rangoId`) REFERENCES `rangos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `token`, `confirmado`, `area`, `rangoId`) VALUES
+(1, ' Administrador', 'correo@correo.com', '$2y$10$1K7xbeldzZzkZc2RHfk4C..fJNOUX43i3J7y/QEddO/7r4T0K4hWO', '', 1, 1, 1);
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
